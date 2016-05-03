@@ -1,0 +1,28 @@
+{
+  "name": "jquery-gift-combo",
+  "version": "0.0.1",
+  "description": "Gift combo in live.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dafrok/jquery-gift-combo.git"
+  },
+  "keywords": [
+    "gift",
+    "live",
+    "combo",
+    "jquery"
+  ],
+  "author": "Dafrok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dafrok/jquery-gift-combo/issues"
+  },
+  "homepage": "https://github.com/Dafrok/jquery-gift-combo#readme",
+  "devDependencies": {
+    "rollup": "^0.26.1"
+  }
+}
