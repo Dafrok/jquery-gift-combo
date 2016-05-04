@@ -15,7 +15,10 @@ $.fn.giftCombo = function (option) {
             $this.removeClass(classIn).addClass(classOut)
         } else if ($this.hasClass(classOut) && !$this.hasClass(classIn)) {
             that.giftQueue[0].count--
+            $this.css('transition', 'none')
             $this.removeClass(classOut)
+            $this[0].clientWidth
+            $this.css('transition', '')
             gifting()
         }
     })
@@ -31,6 +34,7 @@ $.fn.giftCombo = function (option) {
                 gifting()
             }
         } else {
+          	$this.text('')
             that.isGifting = false
         }
     }
@@ -59,7 +63,7 @@ var $giftCombo = $('#gift-combo').giftCombo({
 })
 $giftTrigger.on('click', function () {
     var data = {
-        count: 0 | Math.random() * 5 + 1,
+        count: 0 | Math.random() * 5 + 3,
         // name: ['张三', '李四', '王五', '赵六'][0 | Math.random() * 4]
     }
     $giftCombo.send({
