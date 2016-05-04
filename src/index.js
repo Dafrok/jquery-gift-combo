@@ -5,21 +5,50 @@ $.fn.giftCombo = function (option) {
     // var oneGift =  option.oneGift || new Function
     // var oneCombo = option.oneCombo || new Function
     // var allCombo = option.allCombo || new Function
+    var transitionEffects = null
     var $this = $(this)
     var combo = 0
     var that = this
     this.giftQueue = []
     this.isGifting = false
-    $this.on('transitionend', function () {
-        if ($this.hasClass(classIn) && !$this.hasClass(classOut)) {
-            $this.removeClass(classIn).addClass(classOut)
-        } else if ($this.hasClass(classOut) && !$this.hasClass(classIn)) {
-            that.giftQueue[0].count--
-            $this.css('transition', 'none')
-            $this.removeClass(classOut)
-            $this[0].clientWidth
-            $this.css('transition', '')
-            gifting()
+
+    function allTransitionEnd () {
+        for (var key in transitionEffects) {
+            if (transitionEffects.hasOwnProperty(key) && transitionEffects[key] === false) {
+                return false;
+            }
+        }
+        return true;
+    }
+    $this.on('transitionend', function (e) {
+        // all transition end
+
+        if (!transitionEffects) {
+            transitionEffects = {}
+            var style = window.getComputedStyle($this[0], null)
+            var properties = style.getPropertyValue('transition-property').split(', ')
+            $.each(properties, function (index, property) {
+                transitionEffects[property] = false
+            })
+            if (transitionEffects[e.originalEvent.propertyName] !== undefined) {
+                transitionEffects[e.originalEvent.propertyName] = true;
+            }
+        }
+
+        console.log(transitionEffects)
+        if (allTransitionEnd()) {
+            transitionEffects = null
+            if ($this.hasClass(classIn) && !$this.hasClass(classOut)) {
+                $this.removeClass(classIn).addClass(classOut)
+            } else if ($this.hasClass(classOut) && !$this.hasClass(classIn)) {
+                that.giftQueue[0].count--
+                $this.css('transition', 'none')
+                $this.removeClass(classOut)
+                $this[0].clientWidth
+                $this.css('transition', '')
+                gifting()
+            }
+
         }
     })
     function gifting () {
