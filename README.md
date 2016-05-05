@@ -60,6 +60,7 @@ $button.on('click', function () {
 ```
 
 ## Options
+
 ```es6
 {
   // CSS hook
@@ -71,4 +72,14 @@ $button.on('click', function () {
   oneCombo: function () {},
   allCombo: function () {}
 }
+```
+
+## API
+
+### send
+
+* `Number` **Default value: 1** The number of gifts which will be sent. 
+
+```es6
+$foo.send(5)
 ```
