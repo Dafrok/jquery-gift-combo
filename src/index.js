@@ -1,7 +1,8 @@
 import $ from 'jquery'
 $.fn.giftCombo = function (option) {
     option = option || {}
-    var classActive = option.classActive || 'gift-combo-active'
+    var activeClassName = option.activeClassName || 'gift-combo-active'
+    var startCombo = option.startCombo || new Function
     var oneGift =  option.oneGift || new Function
     var oneCombo = option.oneCombo || new Function
     var allCombo = option.allCombo || new Function
@@ -12,9 +13,9 @@ $.fn.giftCombo = function (option) {
     this.isGifting = false
 
     $this.on('animationend', function (e) {
-        if ($this.hasClass(classActive)) {
+        if ($this.hasClass(activeClassName)) {
             that.giftQueue[0]--
-            $this.removeClass(classActive)
+            $this.removeClass(activeClassName)
             $this[0].clientWidth
             oneGift()
             gifting()
@@ -25,7 +26,7 @@ $.fn.giftCombo = function (option) {
             if (that.giftQueue[0]) {
                 combo++
                 $this.text(combo)
-                $this.addClass(classActive)
+                $this.addClass(activeClassName)
             } else {
                 combo = 0
                 that.giftQueue.shift()
@@ -43,6 +44,7 @@ $.fn.giftCombo = function (option) {
         this.giftQueue.push(data)
         if (!this.isGifting) {
             this.isGifting = true
+            startCombo()
             gifting()
         }
     }

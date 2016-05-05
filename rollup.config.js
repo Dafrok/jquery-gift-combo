@@ -10,6 +10,9 @@ export default {
     external: [
         'jquery'
     ],
+    globals: {
+        jquery: '$'
+    },
     plugins: [
         babel({presets: ['es2015-rollup']}),
         nodeResolve({
