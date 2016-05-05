@@ -1,6 +1,6 @@
 {
   "name": "jquery-gift-combo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Gift combo in live.",
   "main": "index.js",
   "scripts": {

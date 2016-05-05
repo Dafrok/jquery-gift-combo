@@ -41,6 +41,8 @@ $.fn.giftCombo = function (option) {
     }
 
     this.send = function (data) {
+        let count = parseInt(data, 10)
+        count = count > 0 ? count : 1
         this.giftQueue.push(data)
         if (!this.isGifting) {
             this.isGifting = true

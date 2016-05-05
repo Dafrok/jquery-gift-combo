@@ -48,6 +48,8 @@
         }
 
         this.send = function (data) {
+            var count = parseInt(data, 10);
+            count = count > 0 ? count : 1;
             this.giftQueue.push(data);
             if (!this.isGifting) {
                 this.isGifting = true;
