@@ -10,6 +10,8 @@ $ npm i jquery jquery-gift-combo
 
 ## Usage
 
+### JavaScript
+
 ```es6
 import $ from 'jquery'
 import 'jquery-gift-combo'
@@ -22,10 +24,14 @@ $button.on('click', function () {
 })
 ```
 
+### HTML
+
 ```html
 <div id="foo"></div>
 <button id="bar">Gift!</button>
 ```
+
+### CSS
 
 ```css
 #gift-combo {
