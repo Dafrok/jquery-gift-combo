@@ -38,25 +38,7 @@ $button.on('click', function () {
     display: inline-block;
 }
 #gift-combo.gift-combo-active {
-    -webkit-animation: gift-combo 0.7s 1;
     animation: gift-combo 0.7s 1;
-}
-@-webkit-keyframes gift-combo {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(1) translateX(-100%);
-        transform: scale(1) translateX(-100%);
-    }
-    50% {
-        opacity: 1;
-        -webkit-transform: scale(2) translateX(0);
-        transform: scale(2) translateX(0);
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: scale(1) translateX(100%);
-        transform: scale(1) translateX(100%);
-    }
 }
 @keyframes gift-combo {
     0% {
