@@ -13,9 +13,62 @@ $ npm i jquery jquery-gift-combo
 ```es6
 import $ from 'jquery'
 import 'jquery-gift-combo'
-const gifts = 5
 let $giftCombo = $('#foo').giftCombo()
-$giftCombo.send(gifts)
+let $button = $('#bar')
+
+$button.on('click', function () {
+  const gifts = 0 | Math.random() * 2 + 1 // create random amounts of gift
+  $giftCombo.send(gifts)
+})
+```
+
+```html
+<div id="foo"></div>
+<button id="bar">Gift!</button>
+```
+
+```css
+#gift-combo {
+    display: inline-block;
+}
+#gift-combo.gift-combo-active {
+    -webkit-animation: gift-combo 0.7s 1;
+    animation: gift-combo 0.7s 1;
+}
+@-webkit-keyframes gift-combo {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateX(-100%);
+        transform: scale(1) translateX(-100%);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(2) translateX(0);
+        transform: scale(2) translateX(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateX(100%);
+        transform: scale(1) translateX(100%);
+    }
+}
+@keyframes gift-combo {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateX(-100%);
+        transform: scale(1) translateX(-100%);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(2) translateX(0);
+        transform: scale(2) translateX(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateX(100%);
+        transform: scale(1) translateX(100%);
+    }
+}
 ```
 
 ## Options
