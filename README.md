@@ -22,7 +22,7 @@ $giftCombo.send(gifts)
 ```es6
 {
   // CSS hook
-  activeClassName: 'active',
+  activeClassName: 'active', // default: gift-combo-active
   
   // Life cycle
   startCombo: function () {},
