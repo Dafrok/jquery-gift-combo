@@ -64,7 +64,7 @@ $button.on('click', function () {
 ```es6
 {
   // CSS hook
-  activeClassName: 'active', // default: gift-combo-active
+  activeClassName: 'active', // default: 'gift-combo-active'
   
   // Life cycle
   startCombo: function () {},
@@ -78,8 +78,8 @@ $button.on('click', function () {
 
 ### send
 
-* `Number` **Default value: 1** The number of gifts which will be sent. 
+* `Number` The number of gifts which will be sent. 
 
 ```es6
-$foo.send(5)
+$foo.send(5) // default: 1
 ```
