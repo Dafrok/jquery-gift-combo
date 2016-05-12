@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title>jquery-gift-combo demo</title>
+        <meta charset="utf-8">
+        <link href="demo.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <section>
+            <div data-name></div>
+            <div data-combo></div>
+            <div data-postfix></div>
+            <br>
+            <button data-trigger>送礼</button>
+            <pre>
+            <code>
+var data = []
+
+var $trigger = $('[data-trigger]')
+var $name = $('[data-name]')
+var $postfix = $('[data-postfix]')
+var $combo = $('[data-combo]').giftCombo({
+    startCombo: function () {
+        $name.text(`${data[0].name}送了`)
+        $postfix.text('份礼物')
+    },
+    oneCombo: function () {
+        data.shift()
+        if (data.length) {
+            $name.text(`${data[0].name}送了`)
+        }
+    },
+    allCombo: function () {
+        $name.text('')
+        $postfix.text('')
+        data.shift()
+    }
+})
+
+var count = 0
+$trigger.on('click', function () {
+    count++
+    data.push({name: `第${count}个人`, gift: count})
+    $combo.send(data[data.length - 1].gift)
+})
+            </code>
+        </section>
+        <script src="demo.js"></script>
+    </body>
+</html>

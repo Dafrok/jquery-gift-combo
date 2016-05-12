@@ -3,16 +3,10 @@ var nodeResolve = require('rollup-plugin-node-resolve')
 var replace = require('rollup-plugin-replace')
 var babel = require('rollup-plugin-babel')
 export default {
-    entry: 'src/index.js',
-    dest: 'index.js',
+    entry: 'demo/demo.js',
+    dest: 'demo.js',
     format: 'umd',
-    moduleName: 'jquery-gift-combo',
-    external: [
-        'jquery'
-    ],
-    globals: {
-        jquery: '$'
-    },
+    moduleName: 'demo',
     plugins: [
         babel({presets: ['es2015-rollup']}),
         nodeResolve({

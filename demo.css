@@ -1,0 +1,23 @@
+[data-combo], [data-name], [data-postfix] {
+    display: inline-block;
+}
+[data-combo].gift-combo-active {
+    animation: gift-combo 0.3s 1;
+}
+@keyframes gift-combo {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateX(-100%);
+        transform: scale(1) translateX(-100%);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(2) translateX(0);
+        transform: scale(2) translateX(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateX(100%);
+        transform: scale(1) translateX(100%);
+    }
+}
